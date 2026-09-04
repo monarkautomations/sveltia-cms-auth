@@ -1,3 +1,25 @@
 name = "sveltia-cms-auth"
 main = "src/index.js"
 compatibility_date = "2023-03-24"
+
+# Portieri i hyrjes për CMS-në e Rei Pharma.
+#
+# Këto vlera rrinë këtu, jo te paneli i Cloudflare-it, sepse komanda që
+# publikon workerin (`wrangler deploy`) i merr variablat nga ky file. Po t'i
+# linim vetëm te paneli, publikimi i ardhshëm do t'i fshinte — dhe hyrja do të
+# prishej pa asnjë shkak të dukshëm, ndoshta pas javësh.
+#
+# GITHUB_CLIENT_SECRET NUK vihet këtu. Ai rri si "Secret" te paneli; `wrangler`
+# nuk i prek sekretet. Ky repo është publik.
+[vars]
+
+# Client ID nuk është sekret: del i dukshëm te adresa e shfletuesit sa herë
+# dikush hyn me GitHub.
+GITHUB_CLIENT_ID = "Ov23liODctMjKVLuGJe8"
+
+# Kush lejohet ta përdorë këtë portier. Pa këtë listë, çdo sajt në internet
+# mund ta përdorte për të marrë çelësa hyrjeje te repo-ja.
+#
+#   rei-pharma.reipharma.workers.dev  — adresa e sotme
+#   reipharma.al, *.reipharma.al      — domeni i ardhshëm, gati që tani
+ALLOWED_DOMAINS = "rei-pharma.reipharma.workers.dev, reipharma.al, *.reipharma.al"
